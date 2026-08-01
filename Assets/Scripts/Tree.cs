@@ -23,6 +23,14 @@ public class Tree : MonoBehaviour
         if (player == null) { return; }
 
         player.HP -= 15;
+
+        UiManager.instance.ShowNotiText($"Hurt -15 \nHp{player.HP}");
+
+        if (player.HP <= 0)
+        {
+            player .HP = 0;
+            UiManager.instance.ShowNotiText("Game Over");
+        }
     }
 
     private void OnCollisionExit(Collision collision)
