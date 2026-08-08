@@ -33,6 +33,12 @@ public class Player : MonoBehaviour
         moveValue = moveAction.ReadValue<Vector2>();
         rb.AddForce(moveValue.x * Vector3.right * forcePower);
     }
+
+    public void Resetforce()
+    {
+        rb.angularVelocity = Vector3.zero;
+        rb.linearVelocity = Vector3.zero;
+    }
 }
 
 

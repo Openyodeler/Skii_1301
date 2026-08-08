@@ -30,6 +30,8 @@ public class Tree : MonoBehaviour
         {
             player .HP = 0;
             UiManager.instance.ShowNotiText("Game Over");
+            Time.timeScale = 0;
+            UiManager.instance.ShowHideRestartButton(true);
         }
     }
 
