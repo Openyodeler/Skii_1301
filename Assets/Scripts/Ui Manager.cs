@@ -1,10 +1,12 @@
 using UnityEngine;
 using TMPro;
 using Unity.VisualScripting;
+using UnityEngine.SceneManagement;
 
 public class UiManager : MonoBehaviour  
 {
     [SerializeField] private TMP_Text notiText;
+    [SerializeField] private TMP_Text ScreenText;
     public static UiManager instance;
     [SerializeField] private GameObject restartButton;
     [SerializeField] private Player player;
@@ -19,18 +21,24 @@ public class UiManager : MonoBehaviour
         notiText.text = text;
     }
 
+    public void ShowScreenText(string text)
+    {
+        ScreenText.text = text;
+    }
+
     public void Restart()
     {
-        player.HP = 100;
-        player.transform.position = new Vector3(0,87,-85);
-        player.Resetforce();
         Time.timeScale = 1.0f;
-        ShowNotiText("Restart");
-        ShowHideRestartButton(false);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
     public void ShowHideRestartButton(bool flag)
     {
         restartButton.SetActive(flag);
+    }
+
+    public void MainMenu()
+    {
+        SceneManager.LoadScene("MainMenu");
     }
 }

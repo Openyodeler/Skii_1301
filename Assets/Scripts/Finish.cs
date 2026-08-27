@@ -8,7 +8,8 @@ public class Finish : MonoBehaviour
         Player p = other.gameObject.GetComponent<Player>();
         if (p == null || p.HP == 0)
             return;
-        UiManager.instance.ShowNotiText($"You Win \nPoint {p.Point}");
+        UiManager.instance.ShowNotiText($" ");
         UiManager.instance.ShowHideRestartButton(true);
+        UiManager.instance.ShowScreenText($"You Win \nPoint {p.Point}");
     }
 }
